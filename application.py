@@ -23,7 +23,7 @@ def index():
     	session["turn"] = winner[1]
     	print("winner found",session["winner"], session["turn"])
 
-    if(winner[1] == "draw"):
+    if(winner[0] == False and winner[1] == "draw"):
     	session["draw"] = True
 
     return render_template("game.html", game=session["board"], turn=session["turn"],winnerFound=session["winner"],winner=session["turn"],draw=session["draw"])
@@ -45,6 +45,7 @@ def reset():
 	session["board"] = [[None, None, None], [None, None, None], [None, None, None]]
 	session["turn"] = "X"
 	session["winner"] = False
+	session["draw"] = False
 	return redirect(url_for("index"))
 
 def winnerFound(board):
