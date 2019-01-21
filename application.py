@@ -36,8 +36,6 @@ def play(row, col):
 	else:
 		session["turn"] = "X"
 
-	print("here at play")
-	print(session["board"][row][col])
 	return redirect(url_for("index"))
 
 @app.route("/reset")
